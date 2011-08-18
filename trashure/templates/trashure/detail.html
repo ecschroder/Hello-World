@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>Trash or Treasure? // {{ junkpollitem.the_name }} </title>
+<link rel="stylesheet" type="text/css" href="/static/css/styles.css" media="screen" />
+<link href='http://fonts.googleapis.com/css?family=Bangers|Raleway:100' rel='stylesheet' type='text/css' />
+<head>
+
+<body>
+
+<div id="wrapper">
+
+
+<h2>{{ junkpollitem.the_name }} <span>c. {{ junkpollitem.the_year}} </span></h2>
+
+<img class="detail" src="/{{ junkpollitem.the_photo }}" alt="" />
+
+
+<div class="sidebar">
+	<div id="input">
+		<a class="treasure" href="#">Treasure this Gem</a>
+		<a class="trash" href="#">Trash that Shh</a>
+	</div>
+
+	<div id="meta">
+		<h3><span>Description</span></h3>
+		<p>{{ junkpollitem.the_description }}</p>
+		
+		<h3><span>Memory</span></h3>
+		<p>{{ junkpollitem.the_memory }}</p>
+
+	</div>
+
+	<div id="controls">
+<!--		<a class="last" href= {% url the_detail_view previous_item.pk %} >&laquo; this</a>	-->
+		<a class="next" href={% url the_detail_view next_item.pk %}>skip &raquo;</a>	
+	</div>
+	
+
+</div>
+
+<div id="you_might_also_dislike">
+<h3>You might also dislike:</h3>
+	<a href="{% url the_detail_view previous_3.pk %}"><img class="quarter" src="/{{ previous_3.the_photo }}" alt="" /></a>
+	<a href="{% url the_detail_view previous_2.pk %}"><img class="quarter" src="/{{ previous_2.the_photo }}" alt="" /></a>
+	<a href="{% url the_detail_view previous_item.pk %}"><img class="quarter" src="/{{ previous_item.the_photo }}" alt="" /></a>
+	<a href="{% url the_detail_view next_item.pk %}"><img class="quarter" src="/{{ next_item.the_photo }}" alt="" /></a>
+	<a href="{% url the_detail_view next_2.pk %}"><img class="quarter" src="/{{ next_2.the_photo }}" alt="" /></a>
+	<a href="{% url the_detail_view next_3.pk %}"><img class="quarter" src="/{{ next_3.the_photo }}" alt="" /></a>
+</div>
+
+
+
+
+
+</div>
+</body>
+</html>
+

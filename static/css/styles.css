@@ -1,0 +1,318 @@
+/*
+Color theme: Insure by ania
+maroon: 	#BF0449
+blue:		#04B2D9
+moss:		#8B8D60
+orange:		#F25C05
+lipstick:	#A61F1F
+
+grey:		#383838
+*/
+
+
+/* reset */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* clearfix */
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}
+
+
+
+/* general */
+
+body {
+	background: url('../img/light_honeycomb.png') repeat;
+	color: #383838;
+	font-family: 'Raleway', sans-serif;
+	padding-left: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #A61F1F;
+	font-family: 'Bangers', cursive;
+} 
+  
+h1 {
+	font-size: 55px;
+	padding: 15px 0;
+}
+
+h1 span {
+	font-size: 75px;
+	font-family: 'Raleway', sans-serif;	
+}
+
+h2 {
+	font-size: 55px;
+	padding: 10px 0;	
+}
+
+h2 span {
+	font-size: 35px;
+	font-family: 'Raleway', sans-serif;
+}
+
+h3 {
+	font-size: 35px;
+	padding: 20px 0;
+}
+
+h3 span {
+	font-size: 25px;
+	font-weight: bold;
+	font-family: 'Raleway', sans-serif;
+}
+
+p {}
+
+hr {
+	border: 3px solid #BF0449;
+	width: 100%
+	}
+
+
+/* layout */
+
+#wrapper {
+	margin: 0 auto;
+	width: 900px;
+}
+
+.sidebar {
+	float: right;	
+	padding: 25px 0;
+	width: 230px;
+}
+
+.width_1 {
+	width: 300px;
+}
+
+.width_2 {
+	width: 600px;
+}
+
+.width_3{
+	width: 900px;
+}
+
+.floatLeft {
+	float: left;
+}
+
+.floatRight {
+	float: right;
+}
+
+
+#input {}
+
+#meta {
+	height: 350px;
+}
+
+#controls {
+	margin: 20px 0;
+}
+
+#brick {
+	float: left;
+	font-size: 24px;
+	font-style: italic;
+	height: 55px;
+	padding: 30px 65px 65px 0;
+	text-align: center;	
+	width: 535px;
+}
+
+/* button links */
+
+a.trash, a.treasure {
+	background-color: #BF0449;
+	color: #ffffff;
+	display: block;
+	font-family: 'Bangers', cursive;	
+	font-size: 24px;
+	height: 20px;
+	margin: 0 auto 30px;
+	padding: 20px;
+	text-align: center;
+	text-decoration: none;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: #666 0px 2px 3px;
+	-moz-box-shadow: #666 0px 2px 3px;
+	box-shadow: #666 0px 2px 3px;	
+}
+
+a.trash:hover, a.treasure:hover  {
+	background-color: #F25C05;
+}
+
+a.trash {
+	background-image: url(../img/trash.png);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+a.treasure {
+	background-image: url(../img/treasure.png);
+	background-repeat: no-repeat;
+}
+
+
+a.last, a.next {
+	background-color: #8B8D60;
+	color: #ffffff;
+	display: inline-block;
+	font-family: 'Bangers', cursive;	
+	font-size: 24px;
+	height: 20px;
+	margin: 0 auto 30px;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	width: 65px;	
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: #666 0px 2px 3px;
+	-moz-box-shadow: #666 0px 2px 3px;
+	box-shadow: #666 0px 2px 3px;	
+}
+
+a.last:hover, a.next:hover{
+	background-color: #F25C05;
+}
+
+a.last {
+	background-image: url(../img/last.png);
+	background-repeat: no-repeat;	
+}
+
+a.next {
+	background-image: url(../img/next.png);
+	background-repeat: no-repeat;	
+}
+
+
+/* images */
+img.whole, img.half, img.quarter {
+	float: left;
+	margin: 0 5px 5px 0;
+}
+
+a img.whole, a img.half, a img.quarter, img.detail {
+	border-width: 10px;
+	border-style: solid;
+	margin: 0 45px 45px 0;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: #666 0px 2px 3px;
+	-moz-box-shadow: #666 0px 2px 3px;
+	box-shadow: #666 0px 2px 3px;
+}
+
+a img.whole, a img.half, a img.quarter {
+	border-color: #04B2D9;
+}
+
+a:visited img.whole, a:visited img.half, a:visited img.quarter {
+	border-color: #BF0449;
+}
+
+a:hover img.whole, a:hover img.half, a:hover img.quarter {
+	border-color: #F25C05;
+}
+
+img.whole { /* 600 - 65 */ /* in other words, 65 = 2x 10px border + 1x 45px margin */
+	height: 535px;
+	width: 535px;
+}
+
+img.half { /* 300 - 65 */
+	height: 235px;
+	width: 235px;
+}
+
+img.quarter { /* 150 - 65 */
+	height: 85px;
+	width: 85px;
+}
+
+img.detail {
+	border-color: #04B2D9;
+	float: none;
+	height: 600px;
+	width: 600px;
+}

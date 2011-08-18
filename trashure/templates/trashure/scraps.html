@@ -1,0 +1,62 @@
+
+<!--
+{% extends "base.html" %} <!-- define main page layout there. by default django looks in mysites/templates -->
+
+<!--
+{% if latest_poll_list %}
+    <ul>
+    {% for poll in latest_poll_list %}
+        <li><a href="/polls/{{ poll.id }}/">{{ poll.question }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+
+
+
+<hr />
+
+
+<h1>Trash or Treasure?</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<h2>{{ junkpollitem.the_name }}</h2>
+
+<p>{{ junkpollitem.the_description }}</p>
+
+
+<p>{{ junkpollitem.the_memory }}</p>
+<h3>Era: {{ junkpollitem.the_era }}</h3>
+<h4>Posted on {{ junkpollitem.the_pub_date }}</h4>
+
+<h1>The details:</h1>
+<p>{{ junkpollitem.the_name }}</p>
+<p>{{ junkpollitem.the_description }}</p>
+<p>{{ junkpollitem.the_photo }}</p>
+<p>{{ junkpollitem.the_memory }}</p>
+<p>{{ junkpollitem.the_era }}</p>
+<p>{{ junkpollitem.the_pub_date }}</p>
+
+
+<form action="/trashure/{{ junkpollitem.id }}/vote/" method="post">
+{% csrf_token %} <!-- cross-site request forgery (django magic) -->
+{% for choice in junkpollitem.trashchoice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+	<!-- counter variable adds to vote tally in database (when a user selects that choice) -->
+    <label for="choice{{ forloop.counter }}">{{ choice.choice }}</label><br />
+{% endfor %}
+<input type="submit" value="Vote" />
+</form>
+
+
+
+
+
+
+
+<div id="brick"><p>Are these items priceless memories or just pieces of trash? I'll justify it. You make the call.</p></div>
+
+
