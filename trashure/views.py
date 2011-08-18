@@ -36,7 +36,7 @@ def detail(response, junkpollitem_id):
 #	return HttpResponse("Hello. Here's a detail.")
 	try:
 		p = JunkPollItem.objects.get(pk=junkpollitem_id)
-	except Poll.DoesNotExist:
+	except JunkPollItem.DoesNotExist:
 		raise Http404
 	try:
 		q = p.get_next_by_the_pub_date()				# get_next_by is built-in. Check it out.
