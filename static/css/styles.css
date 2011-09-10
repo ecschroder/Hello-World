@@ -142,7 +142,7 @@ hr {
 /* layout */
 
 #wrapper {
-	margin: 0 auto;
+	margin: 0 auto 75px;
 	width: 900px;
 }
 

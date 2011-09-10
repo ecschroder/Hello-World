@@ -1,4 +1,5 @@
 from django.db import models
+import math
 from django.db.models.fields.files import ImageField
 
 THE_ERA_CHOICES = (		# where to put this?
@@ -9,30 +10,22 @@ THE_ERA_CHOICES = (		# where to put this?
 	('UN', 'unknown'),
 )
 
-TRASH_OR_TREASURE_CHOICES = (
-	('Y', 'Treasure'),
-	('N', 'Trash'),
-)
-
 class JunkPollItem(models.Model):
-	the_name = models.CharField(max_length=200)
-	the_description = models.TextField()
-	the_photo = ImageField(upload_to='../media', height_field=None, width_field=None)
-	the_memory = models.TextField()
-	the_year = models.CharField(max_length=4)
-	the_era = models.CharField(max_length=2, choices=THE_ERA_CHOICES)
-	the_pub_date = models.DateTimeField('date published')
-	# could add a votes manager here
+	name = models.CharField(max_length=200)
+	description = models.TextField()
+	photo = ImageField(upload_to='../media', height_field=None, width_field=None)
+	memory = models.TextField()
+	year = models.CharField(max_length=4)
+	era = models.CharField(max_length=2, choices=THE_ERA_CHOICES)
+	pub_date = models.DateTimeField('date published', auto_now=True)
+	treasure_counter = models.IntegerField(default=0)
+	trash_counter = models.IntegerField(default=0)
+	rating_score = models.IntegerField(default=0)
+	controversy_score = models.IntegerField(default=0)
 	def __unicode__(self):
-		return self.the_name
-	
-	
-class TrashChoice(models.Model):
-	poll = models.ForeignKey(JunkPollItem)
-	choice = models.CharField(max_length=1, choices=TRASH_OR_TREASURE_CHOICES)
-	votes = models.IntegerField()
-	def __unicode__(self):
-		return self.choice
-	
-	
+		return self.name
+	def save(self, *args, **kwargs):
+		self.rating_score = self.treasure_counter - self.trash_counter
+		self.controversy_score = ( self.treasure_counter + self.trash_counter )/(math.fabs(self.rating_score)+1)
+		super(JunkPollItem, self).save(*args, **kwargs) # see overriding model methods docs
 	

@@ -3,7 +3,7 @@
 <title>Trash or Treasure? // You decide.</title>
 <link rel="stylesheet" type="text/css" href="/static/css/styles.css" media="screen" />
 <link href='http://fonts.googleapis.com/css?family=Bangers|Raleway:100' rel='stylesheet' type='text/css'>
-<head>
+</head>
 
 
 <body>
@@ -15,10 +15,14 @@
 
 <div id="aboveFold">
 
-<a href="#18"><img class="whole" src="/static/img/object18.jpg" alt="" /></a>
 
-<a href="{% url the_detail_view 2 %}"><img class="half" src="/static/img/object2.jpg" alt="" /></a>
-<a href="{% url the_detail_view 3 %}"><img class="half" src="/static/img/object3.jpg" alt="" /></a>
+{% with mostcontroversial|first as first %}
+<a href="{% url detail first.pk %}"><img class="whole" src="/{{ first.photo }}" alt="" /></a>
+{% endwith %}
+
+{% for k in mostcontroversial|slice:"1:" %}
+<a href="{% url detail k.pk %}"><img class="half" src="/{{ k.photo }}" alt="" /></a>
+{% endfor %}
 
 </div>
 
@@ -26,17 +30,23 @@
 
 <div id="featured_treasure" class="width_2 floatLeft">
 	<h3>Featured treasure:</h3>
-	<a href="#19"><img class="half" src="/static/img/object19.jpg" alt="" /></a>
-	<a href="#6"><img class="half" src="/static/img/object6.jpg" alt="" /></a>
+	
+	{% for i in toptreasure %}
+	<a href="{% url detail i.pk %}"><img class="half" src="/{{ i.photo }}" alt="" /></a>
+	{% endfor %}
+	
+	
 </div>
 
 
 <div id="featured_trash" class="width_1 floatLeft">
 	<h3>Featured trash:</h3>
-	<a href="#7"><img class="quarter" src="/static/img/object7.jpg" alt="" /></a>
-	<a href="#16"><img class="quarter" src="/static/img/object16.jpg" alt="" /></a>
-	<a href="#7"><img class="quarter" src="/static/img/object8.jpg" alt="" /></a>
-	<a href="#16"><img class="quarter" src="/static/img/object5.jpg" alt="" /></a>
+	
+	{% for j in toptrash %}
+	<a href="{% url detail j.pk %}"><img class="quarter" src="/{{ j.photo }}" alt="" /></a>
+	{% endfor %}	
+	
+	
 </div>
 
 
