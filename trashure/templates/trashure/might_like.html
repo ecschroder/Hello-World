@@ -1,0 +1,8 @@
+{% extends detail.html %}
+
+<div id="you_might_also_dislike">
+<h3>You might also like:</h3>
+{% for i in relatedtrash %}
+	<a href="{% url detail i.pk %}"><img class="quarter" src="/{{ i.photo }}" alt="" /></a>
+{% endfor %}
+</div>
