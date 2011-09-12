@@ -28,7 +28,7 @@ def detail(request, junkpollitem_id, vote):
 
 	p = get_object_or_404(JunkPollItem, pk=junkpollitem_id)
 
-	relatedtrash = JunkPollItem.objects.order_by('?')[:6]	# see QuerySet API reference
+	relatedtrash = JunkPollItem.objects.order_by('?')[:4]	# see QuerySet API reference
 		
 	if vote == 'treasure':
 		p.treasure_counter += 1

@@ -1,9 +1,8 @@
-<html>
-<head>
-<title>Trash or Treasure? // You decide.</title>
-<link rel="stylesheet" type="text/css" href="/static/css/styles.css" media="screen" />
-<link href='http://fonts.googleapis.com/css?family=Bangers|Raleway:100' rel='stylesheet' type='text/css'>
-</head>
+{% extends "base.html" %}
+
+{% comment %}Trash or Treasure? // {{ junkpollitem.name }} {% endcomment%}
+
+{% block content %}
 
 
 <body>
@@ -15,18 +14,16 @@
 
 <div id="aboveFold">
 
+	{% with mostcontroversial|first as first %}
+	<a href="{% url detail first.pk %}"><img class="whole" src="/{{ first.photo }}" alt="" /></a>
+	{% endwith %}
 
-{% with mostcontroversial|first as first %}
-<a href="{% url detail first.pk %}"><img class="whole" src="/{{ first.photo }}" alt="" /></a>
-{% endwith %}
-
-{% for k in mostcontroversial|slice:"1:" %}
-<a href="{% url detail k.pk %}"><img class="half" src="/{{ k.photo }}" alt="" /></a>
-{% endfor %}
+	{% for k in mostcontroversial|slice:"1:" %}
+	<a href="{% url detail k.pk %}"><img class="half" src="/{{ k.photo }}" alt="" /></a>
+	{% endfor %}
 
 </div>
 
-<div class="clearfix"></div>
 
 <div id="featured_treasure" class="width_2 floatLeft">
 	<h3>Featured treasure:</h3>
@@ -46,25 +43,18 @@
 	<a href="{% url detail j.pk %}"><img class="quarter" src="/{{ j.photo }}" alt="" /></a>
 	{% endfor %}	
 	
-	
 </div>
 
 
-
-
 <h3>What's the deal here?</h3>
-	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+	<p>I have a lot of junk. Well, some of it might not be junk. It might be treasure. The problem is, I'm having a hard time separating the Trash from the Treasure. Maybe you can help? Go ahead. Vote on it.</p>
 
 <h3>But...why?</h3>
-	<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+	<p>Trash or Treasure is a rookie Django project based on the Django Polls tutorial. It's a very simple app made just for fun. I've documented the process in the blog <a href="http://djangolookslikefun.wordpress.com" target="_blank">Django LooksLikeFun</a>. Comments are welcome.</p>
 
-<h3>Suggested reading:</h3>
-	http://en.wikipedia.org/wiki/Learning
-	http://en.wikipedia.org/wiki/Compulsive_behavior
-	http://www.suite101.com/content/malignant-narcissism-a29906
-	
 </div>
 
 
 </body>
-</html>
+
+{% endblock %}

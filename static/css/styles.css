@@ -1,5 +1,6 @@
 /*
 Color theme: Insure by ania
+http://kuler.adobe.com/#themeID/1454518
 maroon: 	#BF0449
 blue:		#04B2D9
 moss:		#8B8D60
@@ -89,9 +90,11 @@ html[xmlns] .clearfix {
 /* general */
 
 body {
-	background: url('../img/light_honeycomb.png') repeat;
+/*	background: url('../img/light_honeycomb.png') repeat; */
+	background-color: #8B8D60;
 	color: #383838;
-	font-family: 'Raleway', sans-serif;
+/*	font-family: 'Raleway', sans-serif; */ /* too hard to read */
+	font-family: Helvetica, “Helvetica Neue”, Arial, sans-serif;
 	padding-left: 20px;
 }
 
@@ -122,7 +125,7 @@ h2 span {
 
 h3 {
 	font-size: 35px;
-	padding: 20px 0;
+	padding: 15px 0;
 }
 
 h3 span {
@@ -131,7 +134,20 @@ h3 span {
 	font-family: 'Raleway', sans-serif;
 }
 
-p {}
+p {
+	line-height: 1.5em;
+}
+
+a:link, a:visited {
+	border-bottom: 1px dotted #BF0449;
+	color: #BF0449;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	background-color: #BF0449;
+	color: #F5F9FA;
+}
 
 hr {
 	border: 3px solid #BF0449;
@@ -142,13 +158,22 @@ hr {
 /* layout */
 
 #wrapper {
-	margin: 0 auto 75px;
+	background: url('../img/stripe2.png') right repeat-y;
+	background: url('../img/polaroid.png') repeat;	
+	background-color: #F5F9FA;
+	margin: 10px auto 75px;
+	padding: 15px 50px 50px;
+	overflow: hidden;
 	width: 900px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;	
 }
 
 .sidebar {
 	float: right;	
 	padding: 25px 0;
+	overflow: hidden;	
 	width: 230px;
 }
 
@@ -175,9 +200,16 @@ hr {
 
 #input {}
 
-#meta {
-	height: 350px;
+#results {
+	cursor: pointer;
+	padding: 25px 0;
 }
+
+#tally{
+	display: none;
+	}
+
+#meta {}
 
 #controls {
 	margin: 20px 0;
@@ -192,6 +224,8 @@ hr {
 	text-align: center;	
 	width: 535px;
 }
+
+
 
 /* button links */
 
