@@ -25,8 +25,10 @@ class JunkPollItem(models.Model):
 	trash_counter = models.IntegerField(default=0)
 	rating_score = models.IntegerField(default=0)
 	controversy_score = models.IntegerField(default=0)
+	
 	def __unicode__(self):
 		return self.name
+		
 	def save(self, *args, **kwargs):
 		self.rating_score = self.treasure_counter - self.trash_counter
 		self.controversy_score = ( self.treasure_counter + self.trash_counter )/(math.fabs(self.rating_score)+1)
